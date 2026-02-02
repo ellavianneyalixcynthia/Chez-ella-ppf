@@ -24,6 +24,35 @@ footer p {margin:8px 0;}
 input, textarea {width:100%; padding:10px; margin-bottom:10px; border-radius:5px; border:1px solid #ccc;}
 #banner {display:none; text-align:center; padding:15px; background-color:#ffeb3b; font-weight:bold;}
 img {border-radius:8px; width:100%;}
+  /* Amélioration générale */
+body {
+  background-color: #faf7f2;
+}
+
+/* Titres */
+h1, h2 {
+  letter-spacing: 1px;
+}
+
+/* Cartes produits */
+.card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+}
+
+/* Boutons */
+.btn {
+  background: linear-gradient(135deg, #b3541e, #8a3d14);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+}
+
+.btn:hover {
+  background: linear-gradient(135deg, #8a3d14, #5a2d0c);
+}
 </style>
 </head>
 <body>
@@ -157,4 +186,5 @@ window.onload = function(){
 </script>
 
 </body>
+
 </html>
