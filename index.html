@@ -1,236 +1,125 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Porc & Poulet Fumé – Premium</title>
+  <meta charset="UTF-8">
+  <title>Porc & Poulet Fumé</title>
 
-  <!-- ===== STYLE GLOBAL ===== -->
   <style>
+    /* ===================== */
+    /* FOND GLOBAL AVEC IMAGE */
+    /* ===================== */
     body {
       margin: 0;
-      font-family: 'Segoe UI', Arial, sans-serif;
-      background: #0b0b0b;
+      min-height: 100vh;
+      background:
+        linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.9)),
+        url("images/feu-bois-nuit.jpg") no-repeat center center fixed;
+      background-size: cover;
+      font-family: "Segoe UI", Arial, sans-serif;
       color: #f5f5f5;
     }
 
-    header {
-      background: linear-gradient(120deg, #1a1a1a, #0b0b0b);
-      padding: 20px 40px;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .logo {
-      font-size: 24px;
-      font-weight: bold;
-      color: #ffb347;
-    }
-
-    .menu {
-      list-style: none;
-      display: flex;
-      gap: 25px;
-      padding: 0;
-      margin: 0;
-    }
-
-    .menu li a {
-      text-decoration: none;
-      color: #f5f5f5;
-      transition: 0.3s;
-    }
-
-    .menu li a:hover {
-      color: #ff6a00;
-    }
-
-    .hero {
-      height: 80vh;
-      background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('images/fume.jpg') center/cover no-repeat;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-    }
-
-    .hero h1 {
-      font-size: 48px;
-      color: #ffb347;
-    }
-
-    .section {
+    /* ===================== */
+    /* CONTENEUR PRINCIPAL   */
+    /* ===================== */
+    .page {
       max-width: 1100px;
-      margin: 60px auto;
-      background: rgba(255,255,255,0.05);
-      padding: 40px;
-      border-radius: 25px;
+      margin: 80px auto;
+      padding: 50px;
+      background: rgba(0, 0, 0, 0.6);
       backdrop-filter: blur(6px);
-    }
-
-    .section h2 {
-      color: #ffb347;
-      margin-bottom: 20px;
-    }
-
-    .products {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 25px;
-    }
-
-    .product {
-      background: rgba(0,0,0,0.5);
       border-radius: 20px;
-      padding: 20px;
+      box-shadow: 0 0 50px rgba(255,140,0,0.25);
+    }
+
+    /* ===================== */
+    /* TITRES & TEXTE        */
+    /* ===================== */
+    h1 {
       text-align: center;
-    }
-
-    .product img {
-      width: 100%;
-      border-radius: 15px;
-      margin-bottom: 15px;
-    }
-
-    footer {
-      background: #0e0e0e;
-      padding: 60px 20px;
-    }
-
-    .contact a {
-      display: inline-block;
-      margin: 10px;
-      padding: 12px 20px;
-      background: rgba(255,255,255,0.08);
+      font-size: 3em;
       color: #ffb347;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      text-align: center;
+      color: #ffa500;
+      margin-top: 40px;
+    }
+
+    p {
+      text-align: center;
+      font-size: 1.2em;
+      color: #eaeaea;
+      line-height: 1.6;
+    }
+
+    /* ===================== */
+    /* BOUTON                */
+    /* ===================== */
+    .btn {
+      display: block;
+      width: fit-content;
+      margin: 40px auto 0;
+      padding: 14px 32px;
+      background: linear-gradient(135deg, #ff8c00, #ff4500);
+      color: #fff;
       text-decoration: none;
+      font-weight: bold;
       border-radius: 30px;
-      transition: 0.3s;
+      box-shadow: 0 8px 20px rgba(255,100,0,0.4);
+      transition: transform 0.3s, box-shadow 0.3s;
     }
 
-    .contact a:hover {
-      background: #ff6a00;
-      color: #000;
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 30px rgba(255,100,0,0.6);
     }
 
-    .reviews {
-      background: rgba(255,255,255,0.05);
-      border-radius: 20px;
-      padding: 30px;
-      margin: 40px auto;
-      max-width: 900px;
+    /* ===================== */
+    /* FOOTER                */
+    /* ===================== */
+    footer {
+      margin-top: 60px;
       text-align: center;
-    }
-
-    .review {
-      display: none;
-      font-style: italic;
-      font-size: 18px;
-    }
-
-    .review.active {
-      display: block;
-    }
-
-    .review strong {
-      display: block;
-      margin-top: 10px;
-      color: #ffb347;
-    }
-
-    .map {
-      border-radius: 20px;
-      overflow: hidden;
-      max-width: 1000px;
-      margin: 40px auto;
-    }
-
-    .copyright {
-      text-align: center;
-      opacity: 0.7;
-      font-size: 14px;
-      margin-top: 30px;
+      font-size: 0.9em;
+      color: #ccc;
     }
   </style>
 </head>
 
 <body>
 
-<header>
-  <nav>
-    <div class="logo">🔥 Porc & Poulet Fumé</div>
-    <ul class="menu">
-      <li><a href="#accueil">Accueil</a></li>
-      <li><a href="#produits">Produits</a></li>
-      <li><a href="#avis">Avis</a></li>
-      <li><a href="#contact">Commander</a></li>
-    </ul>
-  </nav>
-</header>
+  <div class="page">
+    <h1>Porc & Poulet Fumé</h1>
+    <p>
+      Saveurs authentiques au feu de bois<br>
+      Fumée naturelle • Bois • Flamme • Passion
+    </p>
 
-<section class="hero" id="accueil">
-  <h1>Le Goût Authentique du Bois & du Feu</h1>
-</section>
+    <a href="produits.html" class="btn">Découvrir nos produits</a>
 
-<section class="section" id="produits">
-  <h2>Nos Produits</h2>
-  <div class="products">
-    <div class="product">
-      <img src="images/porc.jpg" alt="Porc fumé">
-      <h3>Porc fumé</h3>
-      <p>Fumé lentement au bois naturel</p>
-    </div>
-    <div class="product">
-      <img src="images/poulet.jpg" alt="Poulet fumé">
-      <h3>Poulet fumé</h3>
-      <p>Saveur intense et tendre</p>
-    </div>
+    <h2>Notre engagement</h2>
+    <p>
+      Des viandes soigneusement sélectionnées, fumées lentement<br>
+      pour un goût intense et authentique.
+    </p>
+
+    <footer>
+      © 2026 Porc & Poulet Fumé – Tous droits réservés
+    </footer>
   </div>
-</section>
-
-<section class="reviews" id="avis">
-  <h2>⭐ Avis Clients</h2>
-  <div class="review active">"Qualité exceptionnelle"<strong>Restaurant Le Prestige</strong></div>
-  <div class="review">"Goût unique"<strong>Hôtel Bois Sacré</strong></div>
-  <div class="review">"Excellent service"<strong>Jean M.</strong></div>
-  <div class="review">"Je recommande"<strong>Clarisse T.</strong></div>
-</section>
-
-<section class="map">
-  <iframe src="https://www.google.com/maps?q=Yaoundé&output=embed" width="100%" height="300" style="border:0" loading="lazy"></iframe>
-</section>
-
-<footer id="contact">
-  <div class="contact" style="text-align:center">
-    <h2>📞 Commander maintenant</h2>
-    <a href="tel:698472211">698 472 211</a>
-    <a href="tel:678180153">678 180 153</a>
-    <a href="https://wa.me/237656115881" target="_blank">WhatsApp</a>
-  </div>
-  <div class="copyright">© 2026 – Porc & Poulet Fumé</div>
-</footer>
-
-<script>
-  let reviews = document.querySelectorAll('.review');
-  let index = 0;
-  setInterval(() => {
-    reviews[index].classList.remove('active');
-    index = (index + 1) % reviews.length;
-    reviews[index].classList.add('active');
-  }, 4000);
-</script>
 
 </body>
 </html>
 
 
+
+
+
+
+  
 
 
 
