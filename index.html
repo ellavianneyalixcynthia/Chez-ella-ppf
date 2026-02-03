@@ -1,314 +1,250 @@
-DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Chez Ella – PPF | Porc & Poulet Fumé à Yaoundé</title>
-<style>
-body {margin:0; font-family:Arial,Helvetica,sans-serif; background-color:#faf7f2; color:#2b2b2b; line-height:1.6;}
-nav {backgroundbody {
-  background: linear-gradient(
-    180deg,
-    #1a0f0a,
-    #2b140d,
-    #3a1a10
-  );
-  color: #f5f5f5;
-}  ; padding:10px; text-align:center;}
-nav a {color:#fff; margin:0 10px; text-decoration:none; font-weight:bold;}
-nav a:hover {text-decoration:underline;}
-header {background-size:cover; background-position:center; color:#fff; padding:80px 20px; text-align:center;}
-header h1 {font-size:3rem; margin-bottom:10px;}
-header p {font-size:1.2rem; margin-bottom:30px;}
-.btn {display:inline-block; background-color:#b3541e; color:#fff; padding:12px 25px; text-decoration:none; border-radius:5px; font-weight:bold;}
-section {padding:60px 20px; max-width:1100px; margin:auto;}
-h2 {text-align:center; color:#b3541e; margin-bottom:40px;}
-.grid {display:grid; grid-template-columns:repeat(auto-fit, minmax(250px, 1fr)); gap:30px;}
-.card {background:#fff; padding:25px; border-radius:10px; box-shadow:0 4px 10px rgba(0,0,0,0.08);}
-.card h3 {margin-top:0; color:#333;}
-.highlight {background-color:#fff3e8; border-left:5px solid #b3541e; padding:20px; margin:30px 0;}
-footer {background-color:#2b2b2b; color:#fff; padding:40px 20px; text-align:center;}
-footer p {margin:8px 0;}
-input, textarea {width:100%; padding:10px; margin-bottom:10px; border-radius:5px; border:1px solid #ccc;}
-#banner {display:none; text-align:center; padding:15px; background-color:#ffeb3b; font-weight:bold;}
-img {border-radius:8px; width:100%;}
-</style>
-</head>
-<body>
-  <div class="section">
-  <h1>🔥 Porc & Poulet Fumé 🔥</h1>
-  <p>Fumage artisanal au bois naturel et charbon sélectionné.</p>
-  <a href="#" class="btn">Voir le catalogue</a>
-</div>
+  <meta charset="UTF-8">
+  <title>Chez Ella – Porc & Poulet Fumé</title>
+  
+  <!-- CSS moderne luxueux -->
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-<div class="section">
-  <h2>Nos Spécialités</h2>
-  <div class="card">🥩 Porc fumé premium</div>
-  <div class="card">🍗 Poulet fumé au bois</div>
-</div>
-<style>/* =========================
-   STYLE GLOBAL – LUXE FUMÉ
-   ========================= */
+    body {
+      font-family: "Poppins", Arial, sans-serif;
+      background-color: #0b0b0b;
+      color: #f5f5f5;
+      min-height: 100vh;
+    }
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+    /* ===== MENU DE NAVIGATION ===== */
+    nav {
+      background: rgba(20,20,20,0.95);
+      backdrop-filter: blur(6px);
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
 
-body {
-  font-family: "Poppins", Arial, sans-serif;
-  background-color: #0b0b0b;
-  background-image:
-    radial-gradient(rgba(255,140,0,0.08) 1px, transparent 1px),
-    radial-gradient(rgba(255,255,255,0.04) 1px, transparent 1px);
-  background-size: 40px 40px, 80px 80px;
-  background-position: 0 0, 20px 20px;
-  color: #f5f5f5;
-  min-height: 100vh;
-}
+    nav .logo {
+      font-size: 24px;
+      font-weight: 700;
+      background: linear-gradient(45deg, #ff8c00, #ffb347);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
 
-/* =========================
-   SECTIONS TRANSLUCIDES
-   ========================= */
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+    }
 
-.section {
-  width: 90%;
-  max-width: 1100px;
-  margin: 60px auto;
-  padding: 40px;
-  background: linear-gradient(
-    145deg,
-    rgba(30, 30, 30, 0.75),
-    rgba(10, 10, 10, 0.85)
-  );
-  backdrop-filter: blur(10px);
-  border-radius: 22px;
-  box-shadow:
-    0 0 40px rgba(255, 140, 0, 0.18),
-    inset 0 0 20px rgba(0, 0, 0, 0.6);
-  border: 1px solid rgba(255, 140, 0, 0.2);
-}
+    nav ul li {
+      position: relative;
+    }
 
-/* =========================
-   TITRES FLAMME / CHARBON
-   ========================= */
+    nav ul li a {
+      text-decoration: none;
+      color: #fff;
+      font-weight: 600;
+      padding: 6px 8px;
+      transition: 0.3s;
+    }
 
-h1, h2, h3 {
-  text-align: center;
-  margin-bottom: 20px;
-  letter-spacing: 1px;
-}
+    nav ul li a:hover {
+      color: #ffb347;
+    }
 
-h1 {
-  font-size: 42px;
-  background: linear-gradient(
-    90deg,
-    #ffb347,
-    #ff8c00,
-    #ffd27d
-  );
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
+    /* Sous-menu déroulant */
+    nav ul li ul {
+      display: none;
+      position: absolute;
+      top: 35px;
+      left: 0;
+      background: rgba(30,30,30,0.95);
+      padding: 10px 0;
+      border-radius: 8px;
+      list-style: none;
+      min-width: 150px;
+    }
 
-h2 {
-  font-size: 30px;
-  color: #ffae42;
-}
+    nav ul li:hover ul {
+      display: block;
+    }
 
-p {
-  text-align: center;
-  font-size: 18px;
-  line-height: 1.8;
-  color: #ddd;
-}
+    nav ul li ul li {
+      padding: 5px 20px;
+    }
 
-/* =========================
-   BOUTONS PREMIUM
-   ========================= */
+    nav ul li ul li a {
+      color: #fff;
+      font-weight: 400;
+    }
 
-.btn {
-  display: inline-block;
-  margin: 25px auto 0;
-  padding: 14px 32px;
-  background: linear-gradient(
-    45deg,
-    #ff8c00,
-    #c75b00
-  );
-  color: #0b0b0b;
-  font-weight: 700;
-  border-radius: 30px;
-  text-decoration: none;
-  box-shadow: 0 0 25px rgba(255, 140, 0, 0.5);
-  transition: all 0.3s ease;
-}
+    nav ul li ul li a:hover {
+      color: #ffb347;
+    }
 
-.btn:hover {
-  transform: scale(1.07);
-  box-shadow: 0 0 45px rgba(255, 180, 60, 0.8);
-}
+    /* ===== SECTIONS ===== */
+    .section {
+      width: 90%;
+      max-width: 1100px;
+      margin: 60px auto;
+      padding: 40px;
+      background: linear-gradient(
+        145deg,
+        rgba(30, 30, 30, 0.75),
+        rgba(10, 10, 10, 0.85)
+      );
+      backdrop-filter: blur(10px);
+      border-radius: 22px;
+      box-shadow:
+        0 0 40px rgba(255, 140, 0, 0.18),
+        inset 0 0 20px rgba(0, 0, 0, 0.6);
+      border: 1px solid rgba(255, 140, 0, 0.2);
+      text-align: center;
+    }
 
-/* =========================
-   CARTES PRODUITS
-   ========================= */
+    h1, h2 {
+      margin-bottom: 20px;
+    }
 
-.card {
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 18px;
-  padding: 25px;
-  margin: 20px;
-  text-align: center;
-  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.6);
-  transition: transform 0.3s ease;
-}
+    h1 {
+      font-size: 42px;
+      background: linear-gradient(
+        90deg,
+        #ffb347,
+        #ff8c00,
+        #ffd27d
+      );
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
 
-.card:hover {
-  transform: translateY(-8px);
-}
+    h2 {
+      font-size: 32px;
+      color: #ffae42;
+    }
 
-/* =========================
-   FOOTER
-   ========================= */
+    p {
+      font-size: 18px;
+      line-height: 1.8;
+      color: #ddd;
+    }
 
-footer {
-  text-align: center;
-  padding: 25px;
-  font-size: 14px;
-  color: #aaa;
-}
+    /* ===== CARTES PRODUITS ===== */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+      margin-top: 30px;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 18px;
+      padding: 25px;
+      text-align: center;
+      box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.6);
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+    }
+
+    /* ===== BOUTONS ===== */
+    .btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 14px 32px;
+      background: linear-gradient(45deg, #ff8c00, #c75b00);
+      color: #0b0b0b;
+      font-weight: 700;
+      border-radius: 30px;
+      text-decoration: none;
+      box-shadow: 0 0 25px rgba(255, 140, 0, 0.5);
+      transition: all 0.3s ease;
+    }
+
+    .btn:hover {
+      transform: scale(1.07);
+      box-shadow: 0 0 45px rgba(255, 180, 60, 0.8);
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      text-align: center;
+      padding: 25px;
+      font-size: 14px;
+      color: #aaa;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      nav ul {
+        flex-direction: column;
+        gap: 15px;
+      }
+      .grid {
+        grid-template-columns: 1fr;
+      }
+    }
   </style>
-<!-- Navigation -->
-<nav>
-<a href="#accueil">Accueil</a>
-<a href="#catalogue">Catalogue</a>
-<a href="#boutique">Boutique</a>
-<a href="#promotions">Promotions</a>
-<a href="#contact">Contact</a>
-</nav>
+</head>
 
-<!-- Bannière cadeau -->
-<div id="banner">🎉 Félicitations ! Vous êtes le client de la millième commande et recevez un cadeau exceptionnel ! 🎁</div>
+<body>
 
-<!-- ACCUEIL -->
-<header id="accueil" style="background-image:url('https://images.unsplash.com/photo-1558030006-450675393462?auto=format&fit=crop&w=1350&q=80');">
-<h1>Chez Ella – PPF</h1>
-<p>Le goût du fumé, la qualité avant tout</p>
-<a href="#boutique" class="btn">Commander sur WhatsApp</a>
-</header>
+  <!-- ===== MENU ===== -->
+  <nav>
+    <div class="logo">Chez Ella</div>
+    <ul>
+      <li><a href="index.html">Accueil</a></li>
+      <li><a href="produits.html">Produits</a></li>
+      <li>
+        <a href="#">Avis</a>
+        <ul>
+          <li><a href="avis_particuliers.html">Particuliers</a></li>
+          <li><a href="avis_pro.html">Professionnels</a></li>
+        </ul>
+      </li>
+      <li><a href="commander.html">Commander</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
 
-<section>
-<h2>Qui sommes-nous ?</h2>
-<p><strong>Chez Ella – PPF</strong> est spécialisé dans le <strong>porc et poulet fumé de haute qualité</strong> à Yaoundé. Nous travaillons avec restaurants, bars et particuliers.</p>
-<div class="highlight"><strong>Notre engagement :</strong> fournir un fumé constant, maîtrisé et fiable, semaine après semaine.</div>
-</section>
+  <!-- ===== SECTION ACCUEIL ===== -->
+  <div class="section">
+    <h1>🔥 Porc & Poulet Fumé au Bois 🔥</h1>
+    <p>Fumage artisanal au charbon et bois naturel. Qualité premium.</p>
+    <a href="produits.html" class="btn">Voir nos produits</a>
+  </div>
 
-<!-- CATALOGUE -->
-<section id="catalogue">
-<h2>Catalogue des Produits</h2>
-<div class="grid">
-<div class="card">
-<img src="https://images.unsplash.com/photo-1617196037110-44b0e020e755?auto=format&fit=crop&w=500&q=80" alt="Poulet fumé entier">
-<h3>🐔 Poulet fumé entier</h3>
-<p>Goût équilibré, prêt à cuisiner.</p>
-<p><strong>Prix :</strong> 5 000 FCFA</p>
-<a class="btn" href="https://wa.me/237656115881?text=Je souhaite commander un poulet fumé entier">Commander</a>
-</div>
-<div class="card">
-<img src="https://images.unsplash.com/photo-1606755962777-29c9b107f2e1?auto=format&fit=crop&w=500&q=80" alt="Poulet fumé découpé">
-<h3>🐔 Poulet fumé découpé</h3>
-<p>Prêt à cuisiner en portions pratiques.</p>
-<p><strong>Prix :</strong> 5 500 FCFA</p>
-<a class="btn" href="https://wa.me/237656115881?text=Je souhaite commander un poulet fumé découpé">Commander</a>
-</div>
-<div class="card">
-<img src="https://images.unsplash.com/photo-1623055742352-5a7cb1bbf92f?auto=format&fit=crop&w=500&q=80" alt="Poitrine de porc fumée">
-<h3>🐖 Poitrine de porc fumée (kg)</h3>
-<p>Idéal pour sauces et braises.</p>
-<p><strong>Prix :</strong> 5 000 FCFA</p>
-<a class="btn" href="https://wa.me/237656115881?text=Je souhaite commander poitrine de porc fumée">Commander</a>
-</div>
-<div class="card">
-<img src="https://images.unsplash.com/photo-1604908177542-3b4f32234f03?auto=format&fit=crop&w=500&q=80" alt="Côtes de porc fumées">
-<h3>🐖 Côtes de porc fumées (kg)</h3>
-<p>Parfait pour braises et plats gourmands.</p>
-<p><strong>Prix :</strong> 5 500 FCFA</p>
-<a class="btn" href="https://wa.me/237656115881?text=Je souhaite commander côtes de porc fumées">Commander</a>
-</div>
-<div class="card">
-<img src="https://images.unsplash.com/photo-1614459500887-38f093b7a9ed?auto=format&fit=crop&w=500&q=80" alt="Travers de porc fumé">
-<h3>🐖 Travers de porc fumé (kg)</h3>
-<p>Idéal pour grillades et braises.</p>
-<p><strong>Prix :</strong> 6 000 FCFA</p>
-<a class="btn" href="https://wa.me/237656115881?text=Je souhaite commander travers de porc fumé">Commander</a>
-</div>
-</div>
-</section>
+  <!-- ===== SECTION PRODUITS EXEMPLE ===== -->
+  <div class="section">
+    <h2>Nos Spécialités</h2>
+    <div class="grid">
+      <div class="card">🥩 Porc fumé premium</div>
+      <div class="card">🍗 Poulet fumé au bois</div>
+      <div class="card">🥓 Poitrine de porc fumée</div>
+      <div class="card">🍖 Travers de porc fumé</div>
+    </div>
+  </div>
 
-<!-- BOUTIQUE / FORMULAIRE -->
-<section id="boutique">
-<h2>Boutique & Commande</h2>
-<form action="mailto:ellavianneyalixcynthia@gmail.com" method="post" enctype="text/plain" style="max-width:600px;margin:auto;">
-<input type="text" name="Nom" placeholder="Nom complet" required>
-<input type="tel" name="Téléphone" placeholder="Téléphone" required>
-<textarea name="Commande" placeholder="Détails de la commande" required></textarea>
-<button type="submit" class="btn">Envoyer la commande</button>
-</form>
-</section>
-
-<!-- PROMOTIONS -->
-<section id="promotions">
-<h2>Promotions et Offres Festives</h2>
-<div class="grid">
-<div class="card">
-<img src="https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2?auto=format&fit=crop&w=500&q=80" alt="Noël">
-<h3>🎄 Noël</h3>
-<p>Emballages festifs & offres spéciales familles</p>
-</div>
-<div class="card">
-<img src="https://images.unsplash.com/photo-1516574187841-cb9cc2ca948b?auto=format&fit=crop&w=500&q=80" alt="Saint-Valentin">
-<h3>❤️ Saint-Valentin</h3>
-<p>Menus duo & portions spéciales</p>
-</div>
-<div class="card">
-<img src="https://images.unsplash.com/photo-1571084905175-0e2fc786edaa?auto=format&fit=crop&w=500&q=80" alt="Événements">
-<h3>🎉 Fêtes & Événements</h3>
-<p>Commandes groupées personnalisées</p>
-</div>
-</div>
-</section>
-
-<!-- CONTACT -->
-<section id="contact">
-<h2>Contact & Coordonnées</h2>
-<p style="text-align:center;">
-📍 Yaoundé<br>
-📞 WhatsApp : <strong>+237 656 115 881</strong><br>
-🚚 Livraison possible sur demande
-</p>
-<p style="text-align:center;">
-<a class="btn" href="https://wa.me/237656115881">Commander maintenant</a>
-</p>
-</section>
-
-<!-- FOOTER -->
-<footer>
-<p><strong>Chez Ella – PPF</strong></p>
-<p>Porc & Poulet Fumé de Qualité</p>
-<p>© 2025 – Tous droits réservés</p>
-</footer>
-
-<script>
-window.onload = function(){
-  let clientNumber = 467;
-  const banner = document.getElementById('banner');
-  if(banner && clientNumber >= 1000) banner.style.display='block';
-};
-</script>
+  <footer>
+    © 2026 – Chez Ella – Porc & Poulet Fumé
+  </footer>
 
 </body>
 </html>
+
 
 
 
