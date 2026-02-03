@@ -190,9 +190,145 @@
       });
     });
   </script>
+<!-- ===================== FOOTER PREMIUM ===================== -->
+<style>
+footer {
+  background: #0e0e0e;
+  color: #f5f5f5;
+  padding: 60px 20px;
+  font-family: Arial, sans-serif;
+}
 
+.footer-container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* CONTACT */
+.contact {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.contact a {
+  display: inline-block;
+  margin: 10px;
+  padding: 12px 20px;
+  background: rgba(255,255,255,0.08);
+  color: #ffb347;
+  text-decoration: none;
+  border-radius: 30px;
+  transition: 0.3s;
+}
+
+.contact a:hover {
+  background: #ff6a00;
+  color: #000;
+}
+
+/* AVIS */
+.reviews {
+  background: rgba(255,255,255,0.05);
+  border-radius: 20px;
+  padding: 30px;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.review {
+  display: none;
+  font-style: italic;
+  font-size: 18px;
+}
+
+.review.active {
+  display: block;
+}
+
+.review strong {
+  display: block;
+  margin-top: 10px;
+  color: #ffb347;
+}
+
+/* MAP */
+.map {
+  border-radius: 20px;
+  overflow: hidden;
+  margin-bottom: 30px;
+}
+
+/* COPYRIGHT */
+.copyright {
+  text-align: center;
+  font-size: 14px;
+  opacity: 0.7;
+}
+</style>
+
+<footer>
+  <div class="footer-container">
+
+    <!-- CONTACT -->
+    <div class="contact">
+      <h2>📞 Contact & Commandes</h2>
+      <a href="tel:698472211">📞 698 472 211</a>
+      <a href="tel:678180153">📞 678 180 153</a>
+      <a href="https://wa.me/237656115881" target="_blank">💬 WhatsApp 656 115 881</a>
+    </div>
+
+    <!-- AVIS -->
+    <div class="reviews">
+      <h2>⭐ Ils nous font confiance</h2>
+
+      <!-- ENTREPRISES -->
+      <div class="review active">"Qualité constante et goût exceptionnel."<strong>Restaurant Le Prestige</strong></div>
+      <div class="review">"Fumage artisanal, nos clients adorent."<strong>Hôtel Bois Sacré</strong></div>
+      <div class="review">"Livraison rapide et produits premium."<strong>Boucherie Royale</strong></div>
+      <div class="review">"Saveur unique, partenariat durable."<strong>Traiteur Saveurs d’Or</strong></div>
+
+      <!-- PARTICULIERS -->
+      <div class="review">"Le meilleur poulet fumé que j’ai mangé."<strong>Jean M.</strong></div>
+      <div class="review">"Porc tendre et très parfumé."<strong>Clarisse T.</strong></div>
+      <div class="review">"Service sérieux, je recommande."<strong>Patrick N.</strong></div>
+      <div class="review">"Goût authentique du feu de bois."<strong>Estelle K.</strong></div>
+      <div class="review">"Excellent pour les fêtes."<strong>Samuel D.</strong></div>
+      <div class="review">"Qualité constante à chaque commande."<strong>Aline B.</strong></div>
+    </div>
+
+    <!-- MAP -->
+    <div class="map">
+      <iframe
+        src="https://www.google.com/maps?q=Yaoundé&output=embed"
+        width="100%"
+        height="300"
+        style="border:0;"
+        allowfullscreen=""
+        loading="lazy">
+      </iframe>
+    </div>
+
+    <div class="copyright">
+      © 2026 – Porc & Poulet Fumé | Tous droits réservés
+    </div>
+
+  </div>
+</footer>
+
+<script>
+let reviews = document.querySelectorAll('.review');
+let index = 0;
+
+setInterval(() => {
+  reviews[index].classList.remove('active');
+  index = (index + 1) % reviews.length;
+  reviews[index].classList.add('active');
+}, 4000);
+</script>
+<!-- ===================== FIN FOOTER ===================== -->
 </body>
 </html>
+
 
 
 
