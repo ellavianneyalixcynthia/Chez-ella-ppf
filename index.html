@@ -2,9 +2,120 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>Porc & Poulet Fumé</title>
+  <title>Chez Ella – Accueil</title>
 
   <style>
+    * { box-sizing: border-box; margin:0; padding:0; }
+    body { font-family:"Poppins", Arial, sans-serif; background:#0b0b0b; color:#f5f5f5; min-height:100vh; }
+
+    /* ===== MENU ===== */
+    nav {
+      background: rgba(20,20,20,0.95);
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top:0;
+      z-index:1000;
+    }
+    nav .logo {
+      font-size:24px;
+      font-weight:700;
+      background:linear-gradient(45deg,#ff8c00,#ffb347);
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+    }
+    nav ul { list-style:none; display:flex; gap:25px; }
+    nav ul li { position:relative; }
+    nav ul li a { text-decoration:none; color:#fff; font-weight:600; padding:6px 8px; transition:0.3s; }
+    nav ul li a:hover { color:#ffb347; }
+
+    /* Sous-menu caché */
+    nav ul li ul {
+      display: none;
+      position: absolute;
+      top: 35px;
+      left: 0;
+      background: rgba(30,30,30,0.95);
+      padding:10px 0;
+      border-radius:8px;
+      list-style:none;
+      min-width:150px;
+    }
+    nav ul li ul li { padding:5px 20px; }
+    nav ul li ul li a { color:#fff; font-weight:400; }
+    nav ul li ul li a:hover { color:#ffb347; }
+
+    /* Bouton mobile */
+    .menu-toggle { display:none; flex-direction:column; cursor:pointer; }
+    .menu-toggle span { height:3px; width:25px; background:#fff; margin-bottom:5px; border-radius:2px; }
+
+    /* ===== SECTIONS ===== */
+    .section {
+      width:90%;
+      max-width:1100px;
+      margin:60px auto;
+      padding:40px;
+      background: linear-gradient(145deg, rgba(30,30,30,0.75), rgba(10,10,10,0.85));
+      backdrop-filter: blur(10px);
+      border-radius:22px;
+      box-shadow: 0 0 40px rgba(255,140,0,0.18), inset 0 0 20px rgba(0,0,0,0.6);
+      border:1px solid rgba(255,140,0,0.2);
+      text-align:center;
+    }
+
+    h1, h2 { margin-bottom:20px; }
+    h1 {
+      font-size:42px;
+      background: linear-gradient(90deg,#ffb347,#ff8c00,#ffd27d);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    h2 { font-size:32px; color:#ffae42; }
+    p { font-size:18px; line-height:1.8; color:#ddd; }
+
+    /* ===== CARTES ===== */
+    .grid {
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:25px;
+      margin-top:30px;
+    }
+    .card {
+      background: rgba(255,255,255,0.05);
+      border-radius:18px;
+      padding:25px;
+      text-align:center;
+      box-shadow: inset 0 0 20px rgba(0,0,0,0.6);
+      transition: transform 0.3s ease;
+    }
+    .card:hover { transform: translateY(-8px); }
+
+    /* ===== BOUTONS ===== */
+    .btn {
+      display:inline-block;
+      margin-top:20px;
+      padding:14px 32px;
+      background: linear-gradient(45deg,#ff8c00,#c75b00);
+      color:#0b0b0b;
+      font-weight:700;
+      border-radius:30px;
+      text-decoration:none;
+      box-shadow:0 0 25px rgba(255,140,0,0.5);
+      transition: all 0.3s ease;
+    }
+    .btn:hover { transform: scale(1.07); box-shadow:0 0 45px rgba(255,180,60,0.8); }
+
+    /* ===== FOOTER ===== */
+    footer { text-align:center; padding:25px; font-size:14px; color:#aaa; }
+
+    /* ===== RESPONSIVE ===== */
+    @media(max-width:768px){
+      nav ul { display:none; flex-direction:column; gap:0; background:rgba(20,20,20,0.95); position:absolute; top:60px; right:0; width:200px; padding:20px; border-radius:0 0 10px 10px; }
+      nav ul.show { display:flex; }
+      .menu-toggle { display:flex; }
+    }
     /* ===================== */
     /* FOND GLOBAL AVEC IMAGE */
     /* ===================== */
@@ -91,7 +202,211 @@
 
 <body>
 
-  <div class="page">
+  <!-- ===== MENU ===== -->
+  <nav>
+    <div class="logo">Chez Ella</div>
+    <div class="menu-toggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <ul id="menu">
+      <li><a href="index.html">Accueil</a></li>
+      <li><a href="produits.html">Produits</a></li>
+      <li>
+        <a href="#">Avis ▼</a>
+        <ul>
+          <li><a href="avis_particuliers.html">Particuliers</a></li>
+          <li><a href="avis_pro.html">Professionnels</a></li>
+        </ul>
+      </li>
+      <li><a href="commander.html">Commander</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- ===== CONTENU ===== -->
+  <div class="section">
+    <h1>🔥 Porc & Poulet Fumé 🔥</h1>
+    <p>Fumage artisanal au bois naturel et charbon.</p>
+    <a href="produits.html" class="btn">Voir nos produits</a>
+  </div>
+
+  <div class="section">
+    <h2>Nos Spécialités</h2>
+    <div class="grid">
+      <div class="card">🥩 Porc fumé premium</div>
+      <div class="card">🍗 Poulet fumé au bois</div>
+      <div class="card">🥓 Poitrine de porc fumée</div>
+      <div class="card">🍖 Travers de porc fumé</div>
+    </div>
+  </div>
+
+  <footer>
+    © 2026 – Chez Ella – Porc & Poulet Fumé
+  </footer>
+
+  <!-- ===== JS MENU DÉROULANT ROBUSTE ===== -->
+  <script>
+    window.addEventListener("DOMContentLoaded", function() {
+      const menuToggle = document.querySelector(".menu-toggle");
+      const menu = document.getElementById("menu");
+      
+      // Menu mobile
+      menuToggle.addEventListener("click", () => {
+        menu.classList.toggle("show");
+      });
+
+      // Sous-menu desktop
+      document.querySelectorAll('nav ul li a').forEach(link => {
+        link.addEventListener('click', function(e){
+          const submenu = this.nextElementSibling;
+          if(submenu && submenu.tagName === 'UL'){
+            e.preventDefault(); // empêche navigation
+            // toggle affichage
+            submenu.style.display = (submenu.style.display === 'block') ? 'none' : 'block';
+          }
+        });
+      });
+    });
+  </script>
+<!-- ===================== FOOTER PREMIUM ===================== -->
+<style>
+footer {
+  background: #0e0e0e;
+  color: #f5f5f5;
+  padding: 60px 20px;
+  font-family: Arial, sans-serif;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* CONTACT */
+.contact {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.contact a {
+  display: inline-block;
+  margin: 10px;
+  padding: 12px 20px;
+  background: rgba(255,255,255,0.08);
+  color: #ffb347;
+  text-decoration: none;
+  border-radius: 30px;
+  transition: 0.3s;
+}
+
+.contact a:hover {
+  background: #ff6a00;
+  color: #000;
+}
+
+/* AVIS */
+.reviews {
+  background: rgba(255,255,255,0.05);
+  border-radius: 20px;
+  padding: 30px;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.review {
+  display: none;
+  font-style: italic;
+  font-size: 18px;
+}
+
+.review.active {
+  display: block;
+}
+
+.review strong {
+  display: block;
+  margin-top: 10px;
+  color: #ffb347;
+}
+
+/* MAP */
+.map {
+  border-radius: 20px;
+  overflow: hidden;
+  margin-bottom: 30px;
+}
+
+/* COPYRIGHT */
+.copyright {
+  text-align: center;
+  font-size: 14px;
+  opacity: 0.7;
+}
+</style>
+
+<footer>
+  <div class="footer-container">
+
+    <!-- CONTACT -->
+    <div class="contact">
+      <h2>📞 Contact & Commandes</h2>
+      <a href="tel:698472211">📞 698 472 211</a>
+      <a href="tel:678180153">📞 678 180 153</a>
+      <a href="https://wa.me/237656115881" target="_blank">💬 WhatsApp 656 115 881</a>
+    </div>
+
+    <!-- AVIS -->
+    <div class="reviews">
+      <h2>⭐ Ils nous font confiance</h2>
+
+      <!-- ENTREPRISES -->
+      <div class="review active">"Qualité constante et goût exceptionnel."<strong>Restaurant Le Prestige</strong></div>
+      <div class="review">"Fumage artisanal, nos clients adorent."<strong>Hôtel Bois Sacré</strong></div>
+      <div class="review">"Livraison rapide et produits premium."<strong>Boucherie Royale</strong></div>
+      <div class="review">"Saveur unique, partenariat durable."<strong>Traiteur Saveurs d’Or</strong></div>
+
+      <!-- PARTICULIERS -->
+      <div class="review">"Le meilleur poulet fumé que j’ai mangé."<strong>Jean M.</strong></div>
+      <div class="review">"Porc tendre et très parfumé."<strong>Clarisse T.</strong></div>
+      <div class="review">"Service sérieux, je recommande."<strong>Patrick N.</strong></div>
+      <div class="review">"Goût authentique du feu de bois."<strong>Estelle K.</strong></div>
+      <div class="review">"Excellent pour les fêtes."<strong>Samuel D.</strong></div>
+      <div class="review">"Qualité constante à chaque commande."<strong>Aline B.</strong></div>
+    </div>
+
+    <!-- MAP -->
+    <div class="map">
+      <iframe
+        src="https://www.google.com/maps?q=Yaoundé&output=embed"
+        width="100%"
+        height="300"
+        style="border:0;"
+        allowfullscreen=""
+        loading="lazy">
+      </iframe>
+    </div>
+
+    <div class="copyright">
+      © 2026 – Porc & Poulet Fumé | Tous droits réservés
+    </div>
+
+  </div>
+</footer>
+
+<script>
+let reviews = document.querySelectorAll('.review');
+let index = 0;
+
+setInterval(() => {
+  reviews[index].classList.remove('active');
+  index = (index + 1) % reviews.length;
+  reviews[index].classList.add('active');
+}, 4000);
+</script>
+<!-- ===================== FIN FOOTER ===================== -->
+    <div class="page">
     <h1>Porc & Poulet Fumé</h1>
     <p>
       Saveurs authentiques au feu de bois<br>
@@ -116,10 +431,8 @@
 
 
 
-
-
-
   
+
 
 
 
