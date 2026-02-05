@@ -1,260 +1,165 @@
-<!DOCTYPE html>
-<html lang="fr">
+<!DOCTYPE html><html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <title>Boutique Premium</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- STYLE GLOBAL -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chez Ella – PPF | Porc & Poulet Fumé à Yaoundé</title>
+  <meta name="description" content="Chez Ella – PPF, fournisseur de porc et poulet fumé de qualité à Yaoundé. Restaurants, bars et particuliers. Régularité, hygiène et goût maîtrisé." />
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: "Poppins", sans-serif;
-    }
-
     body {
-      background: linear-gradient(
-        rgba(0,0,0,0.65),
-        rgba(0,0,0,0.65)
-      ),
-      url("https://images.unsplash.com/photo-1523275335684-37898b6baf30");
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background-color: #faf7f2;
+      color: #2b2b2b;
+      line-height: 1.6;
+    }
+    header {
+      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1558030006-450675393462');
       background-size: cover;
       background-position: center;
       color: #fff;
-      min-height: 100vh;
+      padding: 80px 20px;
+      text-align: center;
     }
-
-    header {
-      padding: 30px 8%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
     header h1 {
-      font-size: 28px;
-      letter-spacing: 2px;
+      font-size: 3rem;
+      margin-bottom: 10px;
     }
-
-    nav a {
-      color: #fff;
-      margin-left: 25px;
-      text-decoration: none;
-      font-weight: 500;
-    }
-
-    nav a:hover {
-      color: gold;
-    }
-
-    .hero {
-      padding: 100px 8%;
-      max-width: 650px;
-    }
-
-    .hero h2 {
-      font-size: 48px;
-      margin-bottom: 20px;
-    }
-
-    .hero p {
-      font-size: 18px;
-      line-height: 1.6;
+    header p {
+      font-size: 1.2rem;
       margin-bottom: 30px;
     }
-
-    .hero button {
-      padding: 15px 35px;
-      background: gold;
-      border: none;
-      color: #000;
-      font-size: 16px;
+    .btn {
+      display: inline-block;
+      background-color: #b3541e;
+      color: #fff;
+      padding: 12px 25px;
+      text-decoration: none;
+      border-radius: 5px;
       font-weight: bold;
-      cursor: pointer;
-      border-radius: 30px;
     }
-
-    .section {
-      padding: 80px 8%;
-      background: #111;
+    section {
+      padding: 60px 20px;
+      max-width: 1100px;
+      margin: auto;
     }
-
-    .section h3 {
+    h2 {
       text-align: center;
-      font-size: 36px;
-      margin-bottom: 50px;
+      color: #b3541e;
+      margin-bottom: 40px;
     }
-
-    .products {
+    .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 30px;
     }
-
-    .product {
-      background: #1c1c1c;
-      border-radius: 15px;
+    .card {
+      background: #fff;
       padding: 25px;
-      text-align: center;
-      transition: transform 0.3s;
-    }
-
-    .product:hover {
-      transform: translateY(-10px);
-    }
-
-    .product img {
-      width: 100%;
       border-radius: 10px;
-      margin-bottom: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
     }
-
-    .product h4 {
-      margin-bottom: 10px;
-      font-size: 20px;
+    .card h3 {
+      margin-top: 0;
+      color: #333;
     }
-
-    .product span {
-      color: gold;
-      font-size: 18px;
-      font-weight: bold;
+    .highlight {
+      background-color: #fff3e8;
+      border-left: 5px solid #b3541e;
+      padding: 20px;
+      margin: 30px 0;
     }
-
-    .signup {
-      padding: 80px 8%;
-      background: #000;
-      text-align: center;
-    }
-
-    .signup h3 {
-      font-size: 34px;
-      margin-bottom: 20px;
-    }
-
-    .signup p {
-      margin-bottom: 30px;
-      font-size: 16px;
-      color: #ccc;
-    }
-
-    .signup input {
-      padding: 15px;
-      width: 280px;
-      border-radius: 30px;
-      border: none;
-      outline: none;
-      margin-right: 10px;
-    }
-
-    .signup button {
-      padding: 15px 30px;
-      border-radius: 30px;
-      border: none;
-      background: gold;
-      font-weight: bold;
-      cursor: pointer;
-    }
-
     footer {
-      padding: 30px;
-      background: #111;
+      background-color: #2b2b2b;
+      color: #fff;
+      padding: 40px 20px;
       text-align: center;
-      font-size: 14px;
-      color: #aaa;
+    }
+    footer p {
+      margin: 8px 0;
     }
   </style>
 </head>
+<body><script>
+window.onload = function() {
+  // Compteur client simple (modifiable manuellement)
+  let clientNumber = 467;
+  function updateCounter() {
+    const counterElement = document.getElementById('clientCounter');
+    if (counterElement) {
+      counterElement.innerText = '#' + clientNumber;
+    }
+  }
+  updateCounter();
 
-<body>
-
-  <!-- HEADER -->
-  <header>
-    <h1>LUXE SHOP</h1>
-    <nav>
-      <a href="#">Accueil</a>
-      <a href="#">Boutique</a>
-      <a href="#inscription">Inscription</a>
-      <a href="#">Contact</a>
-    </nav>
-  </header>
-
-  <!-- HERO -->
-  <section class="hero">
-    <h2>L’élégance au sommet</h2>
-    <p>
-      Découvrez une sélection de produits haut de gamme,
-      pensés pour ceux qui recherchent l’excellence.
-    </p>
-    <button>Découvrir la collection</button>
-  </section>
-
-  <!-- BOUTIQUE -->
-  <section class="section">
-    <h3>Nos Produits</h3>
-
-    <div class="products">
-      <div class="product">
-        <img src="https://images.unsplash.com/photo-1519744792095-2f2205e87b6f">
-        <h4>Montre Prestige</h4>
-        <span>250 000 FCFA</span>
+  // Affichage bannière cadeau millième commande
+  const banner = document.getElementById('banner');
+  if (banner && clientNumber >= 1000) {
+    banner.style.display = 'block';
+  }
+};
+</script>  <!-- HEADER -->  <header>
+    <h1>Chez Ella – PPF</h1>
+    <p>Le goût du fumé, la qualité avant tout</p>
+    <a href="#contact" class="btn">Commander sur WhatsApp</a>
+  </header>  <!-- À PROPOS -->  <section>
+    <h2>Qui sommes-nous ?</h2>
+    <p><strong>Chez Ella – PPF</strong> est une entreprise artisanale spécialisée dans la production de <strong>porc et poulet fumé de haute qualité</strong> à Yaoundé. Nous travaillons avec des restaurants, bars et particuliers à la recherche d’un produit <strong>régulier, propre et savoureux</strong>.</p>
+    <div class="highlight">
+      <strong>Notre engagement :</strong> fournir un fumé constant, maîtrisé et fiable, semaine après semaine.
+    </div>
+  </section>  <!-- PRODUITS -->  <section>
+    <h2>Nos Produits</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>🐔 Poulet Fumé</h3>
+        <ul>
+          <li>Poulet entier fumé</li>
+          <li>Goût naturel et équilibré</li>
+          <li>Prêt à braiser ou cuisiner</li>
+          <li>Disponible entier ou découpé</li>
+        </ul>
       </div>
-
-      <div class="product">
-        <img src="https://images.unsplash.com/photo-1503341455253-b2e723bb3dbb">
-        <h4>Sac de Luxe</h4>
-        <span>180 000 FCFA</span>
-      </div>
-
-      <div class="product">
-        <img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f">
-        <h4>Lunettes Premium</h4>
-        <span>95 000 FCFA</span>
+      <div class="card">
+        <h3>🐖 Porc Fumé</h3>
+        <ul>
+          <li>Porc fumé découpé</li>
+          <li>Chair ferme et bien séchée</li>
+          <li>Idéal pour braise et sauces</li>
+          <li>Vente au kg ou en portions</li>
+        </ul>
       </div>
     </div>
-  </section>
+  </section>  <!-- BANNIÈRE CADEAU MILLIÈME COMMANDE -->  <div id="banner" style="display:none; background-color: #ffd700; color: #333; padding: 15px; text-align: center; font-weight: bold;">
+    🎉 Félicitations ! Vous êtes le client de la millième commande et recevez un cadeau exceptionnel ! 🎁
+  </div>  <!-- COMPTEUR DE COMMANDES -->  <section>
+    <h2>Compteur de commandes</h2>
+    <p style="text-align:center; font-size:1.5rem;">Commande actuelle : <strong id="clientCounter">#467</strong></p>
+    <p style="text-align:center;">🎁 Cadeau prévu pour la <strong>1000ᵉ commande uniquement</strong></p>
+  </section>  <!-- Le reste du contenu global reste inchangé -->  <!-- ... ici tu peux continuer avec toutes les autres sections : boutique, avis, galerie, etc. ... -->  <!-- INSCRIPTION CLIENT / BASE DE DONNÉES -->  <section id="contact">
+    <h2>Inscription & Notifications Clients</h2>
+    <p style="text-align:center">Inscrivez-vous pour recevoir nos nouveautés, disponibilités et offres spéciales.</p><form action="save_client.php" method="POST" style="max-width:500px;margin:40px auto;background:#fff;padding:30px;border-radius:10px;box-shadow:0 4px 12px rgba(0,0,0,0.1)">
+  <label>Nom complet</label><br>
+  <input type="text" name="nom" required style="width:100%;padding:10px;margin-bottom:15px"><br>
 
-  <!-- INSCRIPTION -->
-  <section class="signup" id="inscription">
-    <h3>Restez informé</h3>
-    <p>
-      Inscrivez-vous pour recevoir nos nouveautés,
-      promotions et annonces exclusives par e-mail.
-    </p>
+  <label>Email</label><br>
+  <input type="email" name="email" required style="width:100%;padding:10px;margin-bottom:15px"><br>
 
-    <form onsubmit="enregistrerEmail(event)">
-      <input type="email" id="email" placeholder="Votre adresse e-mail" required>
-      <button type="submit">S’inscrire</button>
-    </form>
-  </section>
+  <label>Téléphone / WhatsApp</label><br>
+  <input type="text" name="telephone" style="width:100%;padding:10px;margin-bottom:20px"><br>
 
-  <!-- FOOTER -->
-  <footer>
-    © 2026 LUXE SHOP – Tous droits réservés
-  </footer>
+  <button type="submit" class="btn" style="width:100%">S'inscrire</button>
+</form>
 
-  <!-- SCRIPT -->
-  <script>
-    function enregistrerEmail(event) {
-      event.preventDefault();
-      const email = document.getElementById("email").value;
-
-      // Simulation sauvegarde locale
-      let emails = JSON.parse(localStorage.getItem("emails")) || [];
-      emails.push(email);
-      localStorage.setItem("emails", JSON.stringify(emails));
-
-      alert("Merci ! Vous recevrez désormais nos notifications.");
-      document.getElementById("email").value = "";
-    }
-  </script>
-
-</body>
+  </section>  <!-- FOOTER -->  <footer>
+    <p><strong>Chez Ella – PPF</strong></p>
+    <p>Porc & Poulet Fumé – Yaoundé</p>
+    <p>Contact WhatsApp : +237 XXX XXX XXX</p>
+  </footer></body>
 </html>
 
 
   
+
 
 
 
