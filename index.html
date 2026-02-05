@@ -1,59 +1,294 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <title>Boutique – Viande Fumée Premium</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Boutique Fumée Premium</title>
+
+<style>
+/* ================= BASE ================= */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body{
+    background:
+      linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)),
+      url("image/feu-bois.jpg") center/cover no-repeat fixed;
+    color:#f5f5f5;
+}
+
+/* ================= NAVBAR ================= */
+nav{
+    position:fixed;
+    top:0;
+    width:100%;
+    background:rgba(0,0,0,0.8);
+    backdrop-filter:blur(8px);
+    padding:15px 40px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    z-index:1000;
+}
+
+nav h1{
+    color:#ff9f1a;
+    letter-spacing:2px;
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+    gap:25px;
+}
+
+nav ul li a{
+    text-decoration:none;
+    color:#fff;
+    font-weight:500;
+    transition:0.3s;
+}
+
+nav ul li a:hover{
+    color:#ff9f1a;
+}
+
+/* ================= SECTIONS ================= */
+section{
+    max-width:1200px;
+    margin:120px auto;
+    padding:40px;
+    background:rgba(255,255,255,0.05);
+    border-radius:20px;
+    backdrop-filter:blur(10px);
+    box-shadow:0 0 40px rgba(0,0,0,0.7);
+}
+
+section h2{
+    text-align:center;
+    margin-bottom:40px;
+    color:#ff9f1a;
+    font-size:2.2em;
+}
+
+/* ================= HERO ================= */
+.hero{
+    text-align:center;
+    padding:120px 20px;
+}
+
+.hero h2{
+    font-size:3em;
+}
+
+.hero p{
+    margin-top:20px;
+    font-size:1.2em;
+    opacity:0.9;
+}
+
+/* ================= BOUTIQUE ================= */
+.produits{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:30px;
+}
+
+.produit{
+    background:rgba(0,0,0,0.6);
+    padding:25px;
+    border-radius:15px;
+    text-align:center;
+    transition:0.4s;
+}
+
+.produit:hover{
+    transform:translateY(-10px);
+    box-shadow:0 0 25px rgba(255,159,26,0.4);
+}
+
+.produit h3{
+    margin-bottom:10px;
+}
+
+.prix{
+    color:#ff9f1a;
+    font-size:1.4em;
+    margin:10px 0;
+}
+
+.produit button{
+    margin-top:15px;
+    padding:12px 20px;
+    border:none;
+    border-radius:30px;
+    background:#ff9f1a;
+    color:#000;
+    font-weight:bold;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.produit button:hover{
+    background:#ffc46b;
+}
+
+/* ================= ABONNEMENTS ================= */
+.abonnements{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:30px;
+}
+
+.abonnement{
+    border:2px solid rgba(255,159,26,0.3);
+    padding:30px;
+    border-radius:20px;
+    text-align:center;
+}
+
+.abonnement h3{
+    font-size:1.6em;
+}
+
+.abonnement .prix{
+    font-size:2em;
+}
+
+.abonnement ul{
+    list-style:none;
+    margin:20px 0;
+}
+
+.abonnement ul li{
+    margin:10px 0;
+}
+
+.abonnement button{
+    background:#ff9f1a;
+    padding:14px 25px;
+    border:none;
+    border-radius:30px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+/* ================= FOOTER ================= */
+footer{
+    text-align:center;
+    padding:40px;
+    background:rgba(0,0,0,0.9);
+    margin-top:80px;
+}
+
+footer a{
+    color:#ff9f1a;
+    text-decoration:none;
+}
+</style>
 </head>
+
 <body>
 
-<header>
-  <h1>🔥 Viande Fumée Premium</h1>
-  <nav>
-    <a href="#">Accueil</a>
-    <a href="#boutique">Boutique</a>
-    <a href="#abonnement">Abonnement</a>
-  </nav>
-</header>
+<nav>
+    <h1>🔥 FUMÉ PREMIUM</h1>
+    <ul>
+        <li><a href="#accueil">Accueil</a></li>
+        <li><a href="#boutique">Boutique</a></li>
+        <li><a href="#abonnement">Abonnements</a></li>
+    </ul>
+</nav>
 
-<section id="boutique" class="container">
-  <h2>Nos Produits</h2>
-
-  <div class="products">
-    <div class="product">
-      <h3>Porc fumé</h3>
-      <p>5 000 FCFA / kg</p>
-      <button onclick="addToCart('Porc fumé')">Ajouter</button>
-    </div>
-
-    <div class="product">
-      <h3>Poulet fumé</h3>
-      <p>4 000 FCFA / pièce</p>
-      <button onclick="addToCart('Poulet fumé')">Ajouter</button>
-    </div>
-  </div>
-
-  <h3>Panier</h3>
-  <ul id="cart"></ul>
-
-  <a id="orderBtn" target="_blank">Commander via WhatsApp</a>
+<!-- ================= ACCUEIL ================= -->
+<section class="hero" id="accueil">
+    <h2>L’Art du Fumé de Luxe</h2>
+    <p>Viandes fumées au bois, charbon et flamme maîtrisée.</p>
 </section>
 
-<section id="abonnement" class="container">
-  <h2>📩 Abonne-toi pour recevoir nos offres</h2>
+<!-- ================= BOUTIQUE ================= -->
+<section id="boutique">
+<h2>Boutique en ligne</h2>
 
-  <input type="email" id="email" placeholder="Ton email">
-  <button onclick="subscribe()">S’abonner</button>
+<div class="produits">
+    <div class="produit">
+        <h3>Poulet fumé royal</h3>
+        <p class="prix">7 500 FCFA</p>
+        <button onclick="ajouterPanier('Poulet fumé')">Ajouter au panier</button>
+    </div>
 
-  <p id="msg"></p>
+    <div class="produit">
+        <h3>Porc fumé premium</h3>
+        <p class="prix">9 000 FCFA</p>
+        <button onclick="ajouterPanier('Porc fumé')">Ajouter au panier</button>
+    </div>
+
+    <div class="produit">
+        <h3>Côte spéciale bois</h3>
+        <p class="prix">12 000 FCFA</p>
+        <button onclick="ajouterPanier('Côte bois')">Ajouter au panier</button>
+    </div>
+</div>
 </section>
 
-<script src="script.js"></script>
+<!-- ================= ABONNEMENTS ================= -->
+<section id="abonnement">
+<h2>Abonnements Premium</h2>
+
+<div class="abonnements">
+    <div class="abonnement">
+        <h3>Essentiel</h3>
+        <p class="prix">5 000 FCFA / mois</p>
+        <ul>
+            <li>✔ Offres exclusives</li>
+            <li>✔ Notifications</li>
+        </ul>
+        <button onclick="abonner('Essentiel')">S’abonner</button>
+    </div>
+
+    <div class="abonnement">
+        <h3>Gold</h3>
+        <p class="prix">15 000 FCFA / mois</p>
+        <ul>
+            <li>✔ Livraison prioritaire</li>
+            <li>✔ Réductions VIP</li>
+            <li>✔ Accès nouveautés</li>
+        </ul>
+        <button onclick="abonner('Gold')">S’abonner</button>
+    </div>
+</div>
+</section>
+
+<footer>
+    <p>📞 698 472 211 / 678 180 153</p>
+    <p>
+        <a href="https://wa.me/237656115881">💬 WhatsApp</a>
+    </p>
+    <p>© 2026 Fumé Premium</p>
+</footer>
+
+<script>
+let panier = [];
+
+function ajouterPanier(produit){
+    panier.push(produit);
+    alert(produit + " ajouté au panier 🛒");
+}
+
+function abonner(type){
+    alert("Merci pour votre abonnement " + type + " ⭐");
+}
+</script>
+
 </body>
 </html>
 
 
   
+
 
 
 
