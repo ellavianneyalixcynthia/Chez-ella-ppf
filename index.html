@@ -1,152 +1,145 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <title>Chez Ella – Accueil</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<title>Chez Ella – Accueil</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+/* ===== GLOBAL ===== */
+* { box-sizing:border-box; margin:0; padding:0; font-family:"Poppins", Arial, sans-serif;}
+body {
+  background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.9)),
+              url("images/feu-bois-nuit.jpg") no-repeat center center fixed;
+  background-size: cover;
+  color:#f5f5f5;
+  min-height:100vh;
+}
 
-  <style>
-    * { box-sizing: border-box; margin:0; padding:0; font-family:"Poppins", Arial, sans-serif;}
-    body {
-      background:
-        linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.9)),
-        url("images/feu-bois-nuit.jpg") no-repeat center center fixed;
-      background-size: cover;
-      color:#f5f5f5;
-      min-height:100vh;
-    }
+/* ===== MENU ===== */
+nav {
+  background: rgba(20,20,20,0.95);
+  padding: 15px 30px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  position:sticky;
+  top:0;
+  z-index:1000;
+}
+nav .logo {
+  font-size:24px;
+  font-weight:700;
+  background:linear-gradient(45deg,#ff8c00,#ffb347);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+nav ul { list-style:none; display:flex; gap:25px;}
+nav ul li { position:relative;}
+nav ul li a { text-decoration:none; color:#fff; font-weight:600; padding:6px 8px; transition:0.3s;}
+nav ul li a:hover { color:#ffb347; }
+nav ul li ul {
+  display:none;
+  position:absolute;
+  top:35px;
+  left:0;
+  background: rgba(30,30,30,0.95);
+  padding:10px 0;
+  border-radius:8px;
+  list-style:none;
+  min-width:150px;
+}
+nav ul li ul li { padding:5px 20px;}
+nav ul li ul li a { font-weight:400;}
+nav ul li ul li a:hover { color:#ffb347; }
+.menu-toggle { display:none; flex-direction:column; cursor:pointer;}
+.menu-toggle span { height:3px; width:25px; background:#fff; margin-bottom:5px; border-radius:2px; }
 
-    /* ===== MENU ===== */
-    nav {
-      background: rgba(20,20,20,0.95);
-      padding: 15px 30px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: sticky;
-      top:0;
-      z-index:1000;
-    }
-    nav .logo {
-      font-size:24px;
-      font-weight:700;
-      background:linear-gradient(45deg,#ff8c00,#ffb347);
-      -webkit-background-clip:text;
-      -webkit-text-fill-color:transparent;
-    }
-    nav ul { list-style:none; display:flex; gap:25px; }
-    nav ul li { position:relative; }
-    nav ul li a { text-decoration:none; color:#fff; font-weight:600; padding:6px 8px; transition:0.3s; }
-    nav ul li a:hover { color:#ffb347; }
-    nav ul li ul {
-      display: none;
-      position: absolute;
-      top: 35px;
-      left: 0;
-      background: rgba(30,30,30,0.95);
-      padding:10px 0;
-      border-radius:8px;
-      list-style:none;
-      min-width:150px;
-    }
-    nav ul li ul li { padding:5px 20px; }
-    nav ul li ul li a { font-weight:400; }
-    nav ul li ul li a:hover { color:#ffb347; }
-    .menu-toggle { display:none; flex-direction:column; cursor:pointer; }
-    .menu-toggle span { height:3px; width:25px; background:#fff; margin-bottom:5px; border-radius:2px; }
+/* ===== SECTIONS ===== */
+.section {
+  width:90%;
+  max-width:1100px;
+  margin:60px auto;
+  padding:40px;
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(6px);
+  border-radius: 22px;
+  text-align:center;
+}
+h1 { font-size:3em; color:#ffb347; margin-bottom:20px;}
+h2 { color:#ffa500; margin-bottom:20px;}
+p { font-size:1.2em; line-height:1.6; margin-bottom:15px;}
 
-    /* ===== SECTIONS ===== */
-    .section {
-      width:90%;
-      max-width:1100px;
-      margin:60px auto;
-      padding:40px;
-      background: rgba(0, 0, 0, 0.6);
-      backdrop-filter: blur(6px);
-      border-radius: 22px;
-      text-align:center;
-    }
+/* GRID / CARTES */
+.grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:25px;
+  margin-top:30px;
+}
+.card {
+  background: rgba(255,255,255,0.05);
+  border-radius:18px;
+  padding:25px;
+  text-align:center;
+  box-shadow: inset 0 0 20px rgba(0,0,0,0.6);
+  transition: transform 0.3s ease;
+}
+.card:hover { transform: translateY(-8px); }
 
-    h1 {
-      font-size:3em;
-      color:#ffb347;
-      margin-bottom:20px;
-    }
-    h2 { color:#ffa500; margin-bottom:20px; }
-    p { font-size:1.2em; line-height:1.6; margin-bottom:15px; }
+/* BOUTONS */
+.btn {
+  display:block;
+  width: fit-content;
+  margin:30px auto 0;
+  padding:14px 32px;
+  background: linear-gradient(135deg, #ff8c00, #ff4500);
+  color:#fff;
+  text-decoration:none;
+  font-weight:bold;
+  border-radius:30px;
+  box-shadow:0 8px 20px rgba(255,100,0,0.4);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.btn:hover { transform: translateY(-3px); box-shadow:0 12px 30px rgba(255,100,0,0.6); }
 
-    /* GRID / CARTES */
-    .grid {
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-      gap:25px;
-      margin-top:30px;
-    }
-    .card {
-      background: rgba(255,255,255,0.05);
-      border-radius:18px;
-      padding:25px;
-      text-align:center;
-      box-shadow: inset 0 0 20px rgba(0,0,0,0.6);
-      transition: transform 0.3s ease;
-    }
-    .card:hover { transform: translateY(-8px); }
+/* FOOTER */
+footer { background:#0e0e0e; color:#f5f5f5; padding:60px 20px; text-align:center;}
+.footer-container { max-width:1200px; margin:auto;}
+.contact a {
+  display:inline-block; margin:10px; padding:12px 20px;
+  background: rgba(255,255,255,0.08); color:#ffb347;
+  text-decoration:none; border-radius:30px; transition:0.3s;
+}
+.contact a:hover { background:#ff6a00; color:#000; }
+.reviews { background: rgba(255,255,255,0.05); border-radius:20px; padding:30px; margin-bottom:40px; text-align:center; }
+.review { display:none; font-style:italic; font-size:18px; }
+.review.active { display:block; }
+.review strong { display:block; margin-top:10px; color:#ffb347; }
+.map { border-radius:20px; overflow:hidden; margin-bottom:30px; }
+.copyright { font-size:14px; opacity:0.7; }
 
-    /* BOUTONS */
-    .btn {
-      display:block;
-      width: fit-content;
-      margin: 30px auto 0;
-      padding:14px 32px;
-      background: linear-gradient(135deg, #ff8c00, #ff4500);
-      color: #fff;
-      text-decoration:none;
-      font-weight:bold;
-      border-radius:30px;
-      box-shadow:0 8px 20px rgba(255,100,0,0.4);
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-    .btn:hover { transform: translateY(-3px); box-shadow:0 12px 30px rgba(255,100,0,0.6); }
+/* NEWSLETTER */
+#newsletterForm input { margin:5px; padding:12px; width:250px; border-radius:8px; border:none;}
+#newsletterForm button { margin-top:10px; }
 
-    /* FOOTER */
-    footer { background:#0e0e0e; color:#f5f5f5; padding:60px 20px; text-align:center; }
-    .footer-container { max-width:1200px; margin:auto; }
-    .contact a {
-      display:inline-block; margin:10px; padding:12px 20px;
-      background: rgba(255,255,255,0.08); color:#ffb347;
-      text-decoration:none; border-radius:30px; transition:0.3s;
-    }
-    .contact a:hover { background:#ff6a00; color:#000; }
-    .reviews { background: rgba(255,255,255,0.05); border-radius:20px; padding:30px; margin-bottom:40px; text-align:center; }
-    .review { display:none; font-style:italic; font-size:18px; }
-    .review.active { display:block; }
-    .review strong { display:block; margin-top:10px; color:#ffb347; }
-    .map { border-radius:20px; overflow:hidden; margin-bottom:30px; }
-    .copyright { font-size:14px; opacity:0.7; }
-
-    /* RESPONSIVE */
-    @media(max-width:768px){
-      nav ul { display:none; flex-direction:column; gap:0; background:rgba(20,20,20,0.95); position:absolute; top:60px; right:0; width:200px; padding:20px; border-radius:0 0 10px 10px; }
-      nav ul.show { display:flex; }
-      .menu-toggle { display:flex; }
-    }
-  </style>
+/* RESPONSIVE */
+@media(max-width:768px){
+  nav ul { display:none; flex-direction:column; gap:0; background:rgba(20,20,20,0.95); position:absolute; top:60px; right:0; width:200px; padding:20px; border-radius:0 0 10px 10px;}
+  nav ul.show { display:flex;}
+  .menu-toggle { display:flex;}
+}
+</style>
 </head>
 
 <body>
-
   <!-- MENU -->
   <nav>
     <div class="logo">Chez Ella</div>
-    <div class="menu-toggle">
-      <span></span><span></span><span></span>
-    </div>
+    <div class="menu-toggle"><span></span><span></span><span></span></div>
     <ul id="menu">
       <li><a href="index.html">Accueil</a></li>
       <li><a href="produits.html">Produits</a></li>
-      <li>
-        <a href="#">Avis ▼</a>
+      <li><a href="#">Avis ▼</a>
         <ul>
           <li><a href="avis_particuliers.html">Particuliers</a></li>
           <li><a href="avis_pro.html">Professionnels</a></li>
@@ -179,12 +172,23 @@
       <h2>Notre engagement</h2>
       <p>Des viandes soigneusement sélectionnées, fumées lentement pour un goût intense et authentique.</p>
     </div>
+
+    <!-- NEWSLETTER / INSCRIPTION -->
+    <div class="section">
+      <h2>📬 Inscrivez-vous à notre Newsletter</h2>
+      <p>Recevez toutes nos offres, nouveautés et promotions directement par email !</p>
+      <form action="save_client.php" method="POST" id="newsletterForm">
+        <input type="text" name="nom" placeholder="Votre nom" required>
+        <input type="email" name="email" placeholder="Votre email" required>
+        <input type="tel" name="telephone" placeholder="Votre téléphone" required>
+        <button type="submit" class="btn">S'inscrire</button>
+      </form>
+    </div>
   </div>
 
   <!-- FOOTER PREMIUM -->
   <footer>
     <div class="footer-container">
-      <!-- CONTACT -->
       <div class="contact">
         <h2>📞 Contact & Commandes</h2>
         <a href="tel:698472211">📞 698 472 211</a>
@@ -192,7 +196,6 @@
         <a href="https://wa.me/237656115881" target="_blank">💬 WhatsApp 656 115 881</a>
       </div>
 
-      <!-- AVIS -->
       <div class="reviews">
         <h2>⭐ Ils nous font confiance</h2>
         <div class="review active">"Qualité constante et goût exceptionnel."<strong>Restaurant Le Prestige</strong></div>
@@ -207,7 +210,6 @@
         <div class="review">"Qualité constante à chaque commande."<strong>Aline B.</strong></div>
       </div>
 
-      <!-- MAP -->
       <div class="map">
         <iframe src="https://www.google.com/maps?q=Yaoundé&output=embed" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
       </div>
@@ -220,23 +222,20 @@
 
   <!-- JS MENU + CAROUSEL AVIS -->
   <script>
-    // Menu mobile
     const menuToggle = document.querySelector(".menu-toggle");
     const menu = document.getElementById("menu");
     menuToggle.addEventListener("click", ()=> menu.classList.toggle("show"));
 
-    // Sous-menu desktop
     document.querySelectorAll('nav ul li a').forEach(link => {
       link.addEventListener('click', function(e){
         const submenu = this.nextElementSibling;
-        if(submenu && submenu.tagName === 'UL'){
+        if(submenu && submenu.tagName==='UL'){
           e.preventDefault();
           submenu.style.display = (submenu.style.display==='block')?'none':'block';
         }
       });
     });
 
-    // Avis automatique
     let reviews = document.querySelectorAll('.review');
     let index=0;
     setInterval(()=>{
@@ -248,30 +247,3 @@
 
 </body>
 </html>
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
