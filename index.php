@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Chez Ella – Commander / Newsletter</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    * { box-sizing:border-box; margin:0; padding:0; font-family:"Poppins", Arial, sans-serif;}
+    body {
+      background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.9)),
+                  url("images/feu-bois-nuit.jpg") no-repeat center center fixed;
+      background-size: cover;
+      color:#f5f5f5;
+      min-height:100vh;
+    }
+
+    /* ===== MENU ===== */
+    nav {
+      background: rgba(20,20,20,0.95);
+      padding: 15px 30px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      position:sticky;
+      top:0;
+      z-index:1000;
+    }
+    nav .logo { font-size:24px; font-weight:700; background:linear-gradient(45deg,#ff8c00,#ffb347); -webkit-background-clip:text; -webkit-text-fill-color:transparent;}
+    nav ul { list-style:none; display:flex; gap:25px;}
+    nav ul li { position:relative;}
+    nav ul li a { text-decoration:none; color:#fff; font-weight:600; padding:6px 8px; transition:0.3s;}
+    nav ul li a:hover { color:#ffb347; }
+    nav ul li ul { display:none; position:absolute; top:35px; left:0; background: rgba(30,30,30,0.95); padding:10px 0; border-radius:8px; list-style:none; min-width:150px;}
+    nav ul li ul li { padding:5px 20px; }
+    nav ul li ul li a { font-weight:400; }
+    nav ul li ul li a:hover { color:#ffb347; }
+    .menu-toggle { display:none; flex-direction:column; cursor:pointer; }
+    .menu-toggle span { height:3px; width:25px; background:#fff; margin-bottom:5px; border-radius:2px; }
+
+    /* ===== PAGE / SECTIONS ===== */
+    .page {
+      max-width:800px;
+      margin:100px auto 60px auto;
+      padding:40px;
+      background: rgba(0,0,0,0.6);
+      backdrop-filter: blur(8px);
+      border-radius:25px;
+      box-shadow:0 0 50px rgba(255,140,0,0.25);
+    }
+
+    h1 { text-align:center; font-size:2.8em; color:#ffb347; margin-bottom:25px; }
+    h2 { text-align:center; font-size:2em; color:#ffa500; margin-bottom:20px; }
+
+    form {
+      display:flex;
+      flex-direction:column;
+      gap:15px;
+      margin-top:20px;
+    }
+    input, textarea {
+      padding:14px 18px;
+      border-radius:12px;
+      border:none;
+      outline:none;
+      font-size:1em;
+      background: rgba(255,255,255,0.1);
+      color:#fff;
+    }
+    input::placeholder, textarea::placeholder { color:#ddd; }
+
+    button {
+      padding:16px 28px;
+      background: linear-gradient(135deg,#ff8c00,#ff4500);
+      color:#fff;
+      font-weight:bold;
+      border:none;
+      border-radius:30px;
+      cursor:pointer;
+      transition:0.3s;
+    }
+    button:hover { transform: translateY(-3px); box-shadow:0 12px 30px rgba(255,100,0,0.6); }
+
+    .success { text-align:center; color:#90ee90; font-weight:bold; margin-top:15px; }
+    .error { text-align:center; color:#ff6a6a; font-weight:bold; margin-top:15px; }
+
+    footer { background:#0e0e0e; color:#f5f5f5; padding:40px 20px; text-align:center; margin-top:60px; border-top:2px solid #ff8c00;}
+    footer a { color:#ffb347; text-decoration:none; margin:0 8px;}
+    footer a:hover { color:#fff; }
+
+    @media(max-width:768px){
+      nav ul { display:none; flex-direction:column; gap:0; background:rgba(20,20,20,0.95); position:absolute; top:60px; right:0; width:220px; padding:20px; border-radius:0 0 10px 10px; }
+      nav ul.show { display:flex; }
+      .menu-toggle { display:flex; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- MENU -->
+  <nav>
+    <div class="logo">Chez Ella</div>
+    <div class="menu-toggle"><span></span><span></span><span></span></div>
+    <ul id="menu">
+      <li><a href="index.php">Accueil</a></li>
+      <li><a href="produits.php">Produits</a></li>
+      <li>
+        <a href="#">Avis ▼</a>
+        <ul>
+          <li><a href="avis_particuliers.php">Particuliers</a></li>
+          <li><a href="avis_pro.php">Professionnels</a></li>
+        </ul>
+      </li>
+      <li><a href="commander.php">Commander</a></li>
+      <li><a href="contact.php">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- CONTENU -->
+  <div class="page">
+    <h1>📩 Inscription Newsletter & Commande</h1>
+
+    <?php
+    // Affiche le message seulement si GET['success'] ou GET['error'] est défini
+    if(isset($_GET['success']) && $_GET['success'] == 1){
+        echo '<div class="success">✅ Merci ! Votre inscription a été enregistrée.</div>';
+    } elseif(isset($_GET['error']) && $_GET['error'] == 1){
+        echo '<div class="error">⚠️ Une erreur est survenue. Veuillez réessayer.</div>';
+    }
+    ?>
+
+    <form method="POST" action="process_form.php">
+      <input type="text" name="nom" placeholder="Votre nom complet" required>
+      <input type="email" name="email" placeholder="Votre e-mail" required>
+      <textarea name="commande" rows="4" placeholder="Votre commande ou message (facultatif)"></textarea>
+      <button type="submit">S’inscrire & Envoyer</button>
+    </form>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    © 2026 – Chez Ella – Porc & Poulet Fumé | Tous droits réservés <br>
+    📞 <a href="tel:698472211">698 472 211</a> | 📞 <a href="tel:678180153">678 180 153</a> | 💬 <a href="https://wa.me/237656115881" target="_blank">WhatsApp 656 115 881</a>
+  </footer>
+
+  <!-- JS MENU -->
+  <script>
+    const menuToggle = document.querySelector(".menu-toggle");
+    const menu = document.getElementById("menu");
+    menuToggle.addEventListener("click", ()=> menu.classList.toggle("show"));
+  </script>
+
+  <!-- Nettoyer l'URL après 2 sec pour éviter que le message reste -->
+  <script>
+    if(window.location.search.includes('success=1') || window.location.search.includes('error=1')){
+        setTimeout(()=>{
+            window.history.replaceState(null, null, window.location.pathname);
+        }, 2000);
+    }
+  </script>
+
+</body>
+</html>

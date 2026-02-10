@@ -1,0 +1,35 @@
+body {
+  font-family: Poppins, Arial;
+  background:#111;
+  color:#fff;
+  text-align:center;
+}
+
+.products {
+  display:flex;
+  justify-content:center;
+  gap:30px;
+}
+
+.product {
+  background:#1c1c1c;
+  padding:20px;
+  border-radius:15px;
+  width:220px;
+}
+
+.product img {
+  width:100%;
+  border-radius:10px;
+}
+
+button {
+  margin-top:30px;
+  padding:15px 30px;
+  border:none;
+  background:#ff8c00;
+  color:#000;
+  font-size:16px;
+  border-radius:30px;
+  cursor:pointer;
+}
